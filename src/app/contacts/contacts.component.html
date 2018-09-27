@@ -1,0 +1,45 @@
+<div class="container spacer">
+
+
+
+  <div class="card border-primary mb-3"  >
+    <div class="card-header"><h5>Liste des contacts</h5></div>
+    <div class="card-body">
+      <div class="form-inline">
+        <label>Mot cle :</label>
+        <input class="form-control" type="text" [ngModel]="motCle"/>
+        <button class="btn btn-primary" (click)="Chercher()">Chercher</button>
+      </div>
+      <table class="table table-striped">
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Email</th>
+        </tr>
+
+        <tr *ngFor="let c of pageContact?.content">
+          <td>{{c.id}}</td>
+          <td>{{c.nom}}</td>
+          <td>{{c.prenom}}</td>
+          <td>{{c.email}}</td>
+
+        </tr>
+
+      </table>
+      <div class="=container">
+        <ul class="nav nav-pills">
+          <li [ngClass]="{'active':i==page}" *ngFor="let p of pages;let i = index ">
+            <a class="clickable" (click)="gotoPage(i)">{{i}}</a>
+
+
+
+          </li>
+        </ul>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
